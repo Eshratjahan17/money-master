@@ -9,21 +9,17 @@ function getingId(fieldName) {
 
 document.getElementById('calculate').addEventListener('click', function() {
     let incomeNmuber = getingId('income-field');
-    console.log(incomeNmuber);
-
-
     let foodNmuber = getingId('food-field');
-    console.log(foodNmuber);
-
     let rentNmuber = getingId('rent-field');
+    let clothNmuber = getingId('cloth-field');
 
-    console.log(rentNmuber);
+
     const savingError = document.getElementById('saving-error');
     const incomeError = document.getElementById('income-error');
 
 
-    let clothNmuber = getingId('cloth-field');
-    console.log(clothNmuber);
+
+
     //error handling
     if (incomeNmuber < 0 || foodNmuber < 0 || rentNmuber < 0 || clothNmuber < 0) {
         window.alert('Please enter a positive number');
@@ -47,11 +43,11 @@ document.getElementById('calculate').addEventListener('click', function() {
             const balanceField = document.getElementById('balance');
             balanceField.innerText = balance;
 
+
+
         }
 
-
     }
-
 
 });
 
@@ -72,26 +68,24 @@ document.getElementById('save').addEventListener('click', function() {
     } else if (isNaN(saveAmountNumber)) {
         window.alert('Please enter a number');
 
-    } else if (save > balance) {
-        savingError.style.display = 'block';
-        incomeError.style.display = 'none';
-
-
     } else {
         let save = incomeNmuber * saveAmountNumber / 100;
-        savedAmountField.innerText = save;
-
-        let remainingBalance = balance - save;
-        remainBalanceField.innerText = remainingBalance;
-
+        if (save > balance) {
+            savingError.style.display = 'block';
+            incomeError.style.display = 'none';
 
 
+        } else {
+            savedAmountField.innerText = save;
 
-        console.log(remainingBalance);
+            let remainingBalance = balance - save;
+            remainBalanceField.innerText = remainingBalance;
+
+        }
+
+
 
     }
 
 
-
-
-})
+});
