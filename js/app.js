@@ -1,22 +1,26 @@
-// function getingId(fieldName) {
-//     const field = document.getElementById(fieldName).value;
-// }
+function getingId(fieldName) {
+    const field = document.getElementById(fieldName).value;
+    let fieldNumber = parseFloat(field);
+    return fieldNumber;
+}
+
 
 
 
 document.getElementById('calculate').addEventListener('click', function() {
-    let income = document.getElementById('income-field').value;
-    let incomeNmuber = parseFloat(income);
+    let incomeNmuber = getingId('income-field');
     console.log(incomeNmuber);
 
-    let food = document.getElementById('food-field').value;
-    let foodNmuber = parseFloat(food);
+
+    let foodNmuber = getingId('food-field');
     console.log(foodNmuber);
-    let rent = document.getElementById('rent-field').value;
-    let rentNmuber = parseFloat(rent);
+
+    let rentNmuber = getingId('rent-field');
+
     console.log(rentNmuber);
-    let cloth = document.getElementById('cloth-field').value;
-    let clothNmuber = parseFloat(cloth);
+
+
+    let clothNmuber = getingId('cloth-field');
     console.log(clothNmuber);
     //total count
     let totalCost = foodNmuber + rentNmuber + clothNmuber;
@@ -33,17 +37,10 @@ document.getElementById('calculate').addEventListener('click', function() {
 
 });
 
-function savings(fieldId) {
-    let amountInput = document.getElementById(fieldId).value;
-    let AmountNumber = parseFloat(amountInput);
-    console.log(AmountNumber);
-    return AmountNumber;
 
-
-}
 document.getElementById('save').addEventListener('click', function() {
-    let saveAmountNumber = savings('save-field');
-    let incomeNmuber = savings('income-field');
+    let saveAmountNumber = getingId('save-field');
+    let incomeNmuber = getingId('income-field');
     let savedAmountField = document.getElementById('saving-amount');
     let balanceField = document.getElementById('balance');
     let balance = balanceField.innerText;
