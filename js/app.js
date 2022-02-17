@@ -1,3 +1,9 @@
+// function getingId(fieldName) {
+//     const field = document.getElementById(fieldName).value;
+// }
+
+
+
 document.getElementById('calculate').addEventListener('click', function() {
     let income = document.getElementById('income-field').value;
     let incomeNmuber = parseFloat(income);
@@ -27,26 +33,32 @@ document.getElementById('calculate').addEventListener('click', function() {
 
 });
 
-function savings() {
-    // let saveInput = document.getElementById('save-field').value;
-    // let saveAmountNumber = parseFloat(saveInput);
-    // console.log(saveAmountNumber);
-
-    let saveInput = document.getElementById('save-field').value;
-    let saveAmountNumber = parseFloat(saveInput);
-    console.log(saveAmountNumber);
-    let income = document.getElementById('income-field').value;
-    let incomeNmuber = parseFloat(income);
-    console.log(incomeNmuber);
-
-    let save = incomeNmuber * saveAmountNumber / 100;
-    console.log(save);
-
-    return save;
+function savings(fieldId) {
+    let amountInput = document.getElementById(fieldId).value;
+    let AmountNumber = parseFloat(amountInput);
+    console.log(AmountNumber);
+    return AmountNumber;
 
 
 }
 document.getElementById('save').addEventListener('click', function() {
-    savings();
+    let saveAmountNumber = savings('save-field');
+    let incomeNmuber = savings('income-field');
+    let savedAmountField = document.getElementById('saving-amount');
+    let balanceField = document.getElementById('balance');
+    let balance = balanceField.innerText;
+    const remainBalanceField = document.getElementById('remain-balance');
+
+
+    let save = incomeNmuber * saveAmountNumber / 100;
+    savedAmountField.innerText = save;
+
+    let remainingBalance = balance - save;
+    remainBalanceField.innerText = remainingBalance;
+
+
+
+
+    console.log(remainingBalance);
 
 })
