@@ -18,6 +18,8 @@ document.getElementById('calculate').addEventListener('click', function() {
     let rentNmuber = getingId('rent-field');
 
     console.log(rentNmuber);
+    const savingError = document.getElementById('saving-error');
+    const incomeError = document.getElementById('income-error');
 
 
     let clothNmuber = getingId('cloth-field');
@@ -29,20 +31,26 @@ document.getElementById('calculate').addEventListener('click', function() {
         window.alert('Please enter a number');
     } else {
         //total count
+
         let totalCost = foodNmuber + rentNmuber + clothNmuber;
+        if (totalCost > incomeNmuber) {
+            savingError.style.display = 'none';
+            incomeError.style.display = 'block';
 
 
-        const expenseField = document.getElementById('total-expenses');
-        expenseField.innerText = totalCost;
-        //balance count
-        let balance = incomeNmuber - totalCost;
+        } else {
+            const expenseField = document.getElementById('total-expenses');
+            expenseField.innerText = totalCost;
+            //balance count
+            let balance = incomeNmuber - totalCost;
 
-        const balanceField = document.getElementById('balance');
-        balanceField.innerText = balance;
+            const balanceField = document.getElementById('balance');
+            balanceField.innerText = balance;
+
+        }
+
 
     }
-
-
 
 
 });
@@ -55,17 +63,35 @@ document.getElementById('save').addEventListener('click', function() {
     let balanceField = document.getElementById('balance');
     let balance = balanceField.innerText;
     const remainBalanceField = document.getElementById('remain-balance');
+    const savingError = document.getElementById('saving-error');
+    const incomeError = document.getElementById('income-error');
+    //error handling
+    if (saveAmountNumber < 0) {
+        window.alert('Please enter a positive number');
+
+    } else if (isNaN(saveAmountNumber)) {
+        window.alert('Please enter a number');
+
+    } else if (save > balance) {
+        savingError.style.display = 'block';
+        incomeError.style.display = 'none';
 
 
-    let save = incomeNmuber * saveAmountNumber / 100;
-    savedAmountField.innerText = save;
+    } else {
+        let save = incomeNmuber * saveAmountNumber / 100;
+        savedAmountField.innerText = save;
 
-    let remainingBalance = balance - save;
-    remainBalanceField.innerText = remainingBalance;
+        let remainingBalance = balance - save;
+        remainBalanceField.innerText = remainingBalance;
 
 
 
 
-    console.log(remainingBalance);
+        console.log(remainingBalance);
+
+    }
+
+
+
 
 })

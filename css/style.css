@@ -68,3 +68,25 @@ input {
 .save-field {
     width: 100px;
 }
+
+
+/* errors show */
+
+.error-throw {
+    display: block;
+    background-color: Crimson;
+    color: white;
+    border-radius: 10px;
+    padding: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bolder;
+}
+
+.income-error {
+    display: none;
+}
+
+.saving-error {
+    display: none;
+}
