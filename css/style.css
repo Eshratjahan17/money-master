@@ -1,0 +1,70 @@
+/* google font */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+body {
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px;
+}
+
+h1 {
+    margin: 10px 0;
+    color: #31a5ac;
+    font-weight: bold;
+    text-align: center;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+h6 {
+    font-weight: bold;
+}
+
+p {
+    display: inline;
+}
+
+input {
+    margin: 10px;
+    padding: 10px;
+    background-color: #dcdcdc;
+    border: none;
+}
+
+
+/* balance-calculation */
+
+.balance-calculation {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.image {
+    margin-right: 20px;
+}
+
+
+/* calculation */
+
+.calculation {
+    background-color: #f8f8f8;
+    margin-left: 20px;
+    padding: 20px;
+}
+
+.income {
+    margin-bottom: 10px;
+}
+
+
+/* saving */
+
+.saving-amount {
+    margin-top: 20px;
+}
+
+.save-field {
+    width: 100px;
+}
