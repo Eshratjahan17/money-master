@@ -22,17 +22,27 @@ document.getElementById('calculate').addEventListener('click', function() {
 
     let clothNmuber = getingId('cloth-field');
     console.log(clothNmuber);
-    //total count
-    let totalCost = foodNmuber + rentNmuber + clothNmuber;
+    //error handling
+    if (incomeNmuber < 0 || foodNmuber < 0 || rentNmuber < 0 || clothNmuber < 0) {
+        window.alert('Please enter a positive number');
+    } else if (isNaN(incomeNmuber) || isNaN(foodNmuber) || isNaN(rentNmuber) || isNaN(clothNmuber)) {
+        window.alert('Please enter a number');
+    } else {
+        //total count
+        let totalCost = foodNmuber + rentNmuber + clothNmuber;
 
 
-    const expenseField = document.getElementById('total-expenses');
-    expenseField.innerText = totalCost;
-    //balance count
-    let balance = incomeNmuber - totalCost;
+        const expenseField = document.getElementById('total-expenses');
+        expenseField.innerText = totalCost;
+        //balance count
+        let balance = incomeNmuber - totalCost;
 
-    const balanceField = document.getElementById('balance');
-    balanceField.innerText = balance;
+        const balanceField = document.getElementById('balance');
+        balanceField.innerText = balance;
+
+    }
+
+
 
 
 });
